@@ -1,0 +1,6 @@
+New constitution version: 1.0.0 (Initial version for the 'AI Robotics & Humanoids' mini-book content).
+
+No files require manual follow-up.
+
+Suggested commit message:
+docs: initialize constitution for 'AI Robotics & Humanoids' mini-book v1.0.0
