@@ -124,9 +124,8 @@ if ($IncludeTasks -and (Test-Path $paths.TASKS)) {
     $docs += 'tasks.md' 
 }
 
-# Output results
-if ($Json) {
-    # JSON output
+    # Output results
+if ($Json) {    # JSON output
     [PSCustomObject]@{ 
         FEATURE_DIR = $paths.FEATURE_DIR
         AVAILABLE_DOCS = $docs 

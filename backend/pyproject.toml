@@ -1,0 +1,14 @@
+[project]
+name = "docusaurus-chatbot-backend"
+version = "0.1.0"
+description = "Backend for Docusaurus Chatbot"
+dependencies = [
+    "beautifulsoup4>=4.14.3",
+    "fastapi>=0.124.2",
+    "lxml>=6.0.2",
+    "openai>=2.11.0",
+    "python-dotenv>=1.2.1",
+    "qdrant-client>=1.16.1",
+    "sqlalchemy>=2.0.45",
+    "uvicorn>=0.38.0",
+]
