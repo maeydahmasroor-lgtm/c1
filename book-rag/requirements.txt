@@ -1,0 +1,10 @@
+agents
+fastapi[standard]
+langchain
+langchain-core
+langchain-openai
+langchain-qdrant
+openai
+python-dotenv
+qdrant-client
+uvicorn
