@@ -9,7 +9,7 @@ app = FastAPI(title="Book RAG API")
 # Allow Docusaurus frontend (adjust for prod)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", ""],
+    allow_origins=["http://localhost:3000", "https://c1-rtsk.vercel.app/"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

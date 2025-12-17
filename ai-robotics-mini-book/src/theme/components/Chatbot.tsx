@@ -29,7 +29,7 @@ const Chatbot = ({ selectedText }) => {
 
     try {
       // Backend API URL
-      const API_BASE_URL = 'http://127.0.0.1:8000';
+      const API_BASE_URL = 'https://c1-miez.vercel.app/';
       const endpoint = '/query/selected-text';
       const payload = isSelectedTextQuery
         ? { question: queryText, selected_text: selectedText }
