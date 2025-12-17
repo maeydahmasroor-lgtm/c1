@@ -50,9 +50,9 @@ def main():
     collection_name = "rag2"
 
     # 🧹 Delete if exists
-    if client.collection_exists(collection_name):
-        print(f"🗑️  Deleting existing '{collection_name}'")
-        client.delete_collection(collection_name)
+    #if client.collection_exists(collection_name):
+    #    print(f"🗑️  Deleting existing '{collection_name}'")
+    #    client.delete_collection(collection_name)
 
     # ➕ Create collection
     client.create_collection(
