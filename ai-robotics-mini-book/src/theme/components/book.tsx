@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import './chatbot.module.css'
+
 export default function BookChatbot() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<{role: 'user'|'bot', text: string}[]>([]);

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
-import styles from './Chatbot.module.css';
+import styles from './chatbot.module.css';
 
 const Chatbot = ({ selectedText }) => {
   const [messages, setMessages] = useState([]);
