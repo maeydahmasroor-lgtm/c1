@@ -1,7 +1,7 @@
 # backend/main.py
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-from rag import query_rag
+from rag1 import query_rag
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(title="Book RAG API")
@@ -19,7 +19,7 @@ class AskRequest(BaseModel):
     question: str
     selected_text: str = None
 
-@app.post("/ask")
+@app.post("/query/selected-text")
 async def ask(req: AskRequest):
     try:
         answer = await query_rag(req.question, req.selected_text)

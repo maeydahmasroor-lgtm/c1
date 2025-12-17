@@ -17,9 +17,9 @@ embedding = OpenAIEmbeddings(
 qdrant = QdrantVectorStore(
     client=QdrantClient(
         url=os.getenv("QDRANT_URL"),
-        api_key=os.getenv("QDRANT_API_KEY")
+        api_key=os.getenv("QDRANT_API_KEY1")
     ),
-    collection_name="book_rag",
+    collection_name="rag2",
     embedding=embedding
 )
 
