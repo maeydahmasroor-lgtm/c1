@@ -47,7 +47,7 @@ def main():
         timeout=30
     )
 
-    collection_name = "rag2"
+    collection_name = "rag4"
 
     # 🧹 Delete if exists
     #if client.collection_exists(collection_name):

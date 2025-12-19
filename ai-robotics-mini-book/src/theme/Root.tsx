@@ -49,8 +49,8 @@ export default function Root({ children, ...props }) {
     <>
       {children}
       {/* Chatbot UI - now handles its own positioning */}
-      <Chatbot selectedText={selectedText}/>
-      {/*<BookChatbot/>*/}
+      {/*<Chatbot selectedText={selectedText}/>*/}
+      <BookChatbot/>
     </>
   );
 };

@@ -3,7 +3,7 @@ import os
 import asyncio
 from dotenv import load_dotenv
 from openai import AsyncOpenAI
-from qdrant_client import QdrantClient
+from qdrant_client import AsyncQdrantClient
 from qdrant_client.models import VectorParams, Distance
 
 load_dotenv()
@@ -15,7 +15,7 @@ gemini_client = AsyncOpenAI(
 )
 
 # ✅ LOCAL QDRANT (no network issues)
-qdrant_client = QdrantClient(path="./local_qdrant")  # ← data stored in ./local_qdrant
+qdrant_client = AsyncQdrantClient(path="./local_qdrant")  # ← data stored in ./local_qdrant
 
 COLLECTION_NAME = "rag2"
 
@@ -36,7 +36,7 @@ async def query_rag(question: str, selected_text: str = None) -> str:
         query_vector = await embed_text(question)
         
         # 2. Search local Qdrant
-        hits = qdrant_client.search(
+        hits = await qdrant_client.search(
             collection_name=COLLECTION_NAME,
             query_vector=query_vector,
             limit=4

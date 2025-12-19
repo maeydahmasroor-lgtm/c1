@@ -1,9 +1,9 @@
 # backend/main.py
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-from rag1 import query_rag
+from rag3 import query_rag
 from fastapi.middleware.cors import CORSMiddleware
-
+from typing import Optional
 app = FastAPI(title="Book RAG API")
 
 # Allow Docusaurus frontend (adjust for prod)
@@ -17,7 +17,7 @@ app.add_middleware(
 
 class AskRequest(BaseModel):
     question: str
-    selected_text: str = None
+    selected_text: Optional[str] = None
 
 @app.post("/query/selected-text")
 async def ask(req: AskRequest):
