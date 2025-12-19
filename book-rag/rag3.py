@@ -13,8 +13,8 @@ gemini_client = AsyncOpenAI(
     base_url="https://generativelanguage.googleapis.com/v1beta/openai/"  # ← clean
 )
 
-qdrant_client = AsyncQdrantClient(path="./local_qdrant")
-COLLECTION_NAME = "rag4"
+qdrant_client = AsyncQdrantClient(path="./local_qdrant_v2")
+COLLECTION_NAME = "book_rag"
 
 async def embed_text(text: str) -> list[float]:
     # ✅ Use text-embedding-004 (Gemini's model)
