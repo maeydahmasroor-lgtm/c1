@@ -1,7 +1,7 @@
 # backend/main.py
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-from rag3 import query_rag
+from rag5 import query_rag
 from fastapi.middleware.cors import CORSMiddleware
 from typing import Optional
 app = FastAPI(title="Book RAG API")
@@ -9,7 +9,7 @@ app = FastAPI(title="Book RAG API")
 # Allow Docusaurus frontend (adjust for prod)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "https://c1-rtsk.vercel.app/"],
+    allow_origins=["http://localhost:3000"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
