@@ -1,7 +1,7 @@
 # backend/main.py
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-from rag5 import query_rag
+from rag import query_rag
 from fastapi.middleware.cors import CORSMiddleware
 from typing import Optional
 app = FastAPI(title="Book RAG API")

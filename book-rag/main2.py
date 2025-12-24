@@ -11,7 +11,7 @@ from pydantic import BaseModel
 from typing import List
 
 # Import RAG engine (ensure rag.py is in same directory)
-from rag6 import RAGEngine
+from rag5 import RAGEngine
 
 app = FastAPI(
     title="Physical AI Textbook API",

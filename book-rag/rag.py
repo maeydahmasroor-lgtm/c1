@@ -10,7 +10,7 @@ load_dotenv()
 
 # Initialize once
 embedding = OpenAIEmbeddings(
-    api_key=os.getenv("GEMINI_API_KEY"),
+    api_key=os.getenv("GEMINI_API_KEY1"),
     base_url="https://generativelanguage.googleapis.com/v1beta/openai/"
 )
 
@@ -24,7 +24,7 @@ qdrant = QdrantVectorStore(
 )
 
 gemini_client = AsyncOpenAI(
-    api_key=os.getenv("GEMINI_API_KEY"),
+    api_key=os.getenv("GEMINI_API_KEY1"),
     base_url="https://generativelanguage.googleapis.com/v1beta/openai/"
 )
 

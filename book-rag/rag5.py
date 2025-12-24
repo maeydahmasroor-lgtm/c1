@@ -13,7 +13,7 @@ gemini_client = AsyncOpenAI(
 )
 
 qdrant_client = AsyncQdrantClient(path="./local_qdrant_v2")
-COLLECTION_NAME = "book_rag"
+COLLECTION_NAME = "rag4"
 
 async def query_rag(question: str, selected_text: str = None) -> str:
     if selected_text:

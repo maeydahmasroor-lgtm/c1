@@ -12,7 +12,7 @@ class RAGEngine:
         )
         # ✅ Use same path as ingest.py
         self.qdrant = AsyncQdrantClient(path="./local_qdrant_physical")
-        self.collection = "physical_ai_book"
+        self.collection = "rag2"
 
     async def ask(self, question: str):
         # 1. Embed query
