@@ -26,7 +26,7 @@ export default function ChatbotPopup() {
     setLoading(true);
 
     try {
-      const res = await fetch("http://localhost:8000/query/selected-text", {
+      const res = await fetch("http://localhost:8000/ask", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ question: userMsg.text }),
