@@ -17,6 +17,5 @@ dependencies = [
     "uvicorn>=0.38.0",
     "docling>=2.65.0",
     "fastembed>=0.7.4",
-    "google-generativeai>=0.8.6",
     "google-genai>=1.56.0",
 ]
