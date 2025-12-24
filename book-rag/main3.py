@@ -3,7 +3,7 @@ import os
 from fastapi import FastAPI
 from pydantic import BaseModel
 from qdrant_client import QdrantClient
-import google as genai
+import genai
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
@@ -33,8 +33,8 @@ qdrant = QdrantClient(
     api_key=QDRANT_API_KEY
 )
 
-#genai_client = genai.Client(api_key=GEMINI_API_KEY)
-genai.configure(api_key=GEMINI_API_KEY)
+genai_client = genai.Client(api_key=GEMINI_API_KEY)
+#genai.configure(api_key=GEMINI_API_KEY)
 
 #model = genai.GenerativeModel("gemini-1.5-flash")
 #response = model.generate_content("Hello!")
