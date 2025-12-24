@@ -3,9 +3,13 @@ import os
 from fastapi import FastAPI
 from pydantic import BaseModel
 from qdrant_client import QdrantClient
-from google import genai
+import google as genai
+from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel
 from typing import List
 
+app = FastAPI(title="Book RAG API")
 # ---------------------------
 # Load secrets (use env variables or .env)
 # ---------------------------
@@ -29,8 +33,11 @@ qdrant = QdrantClient(
     api_key=QDRANT_API_KEY
 )
 
-genai_client = genai.Client(api_key=GEMINI_API_KEY)
+#genai_client = genai.Client(api_key=GEMINI_API_KEY)
+genai.configure(api_key=GEMINI_API_KEY)
 
+#model = genai.GenerativeModel("gemini-1.5-flash")
+#response = model.generate_content("Hello!")
 # ---------------------------
 # FastAPI app
 # ---------------------------
@@ -86,9 +93,9 @@ Book Content:
 Question:
 {question}
 """
-
-    response = genai_client.models.generate_content(
-        model="gemini-2.5-flash",
+    
+    model = genai.GenerativeModel("gemini-1.5-flash")
+    response = model.generate_content(
         contents=prompt
     )
 
