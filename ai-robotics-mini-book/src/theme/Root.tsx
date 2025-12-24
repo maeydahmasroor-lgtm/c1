@@ -17,6 +17,7 @@ export default function Root({ children }: PropsWithChildren<{}>): any {
 import React from 'react';
 import Chatbot from './components/Chatbot';
 import BookChatbot from './components/book'; // Adjust path as necessary
+import Chat from './components/chat1'
 
 export default function Root({ children, ...props }) {
   // The selectedText is managed by the parent (Root component) which listens for selection events.
@@ -50,7 +51,8 @@ export default function Root({ children, ...props }) {
       {children}
       {/* Chatbot UI - now handles its own positioning */}
       {/*<Chatbot selectedText={selectedText}/>*/}
-      <BookChatbot/>
+      {/*<BookChatbot/>*/}
+      <Chat/>
     </>
   );
 };
