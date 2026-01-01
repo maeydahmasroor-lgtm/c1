@@ -17,7 +17,7 @@ export default function ChatbotPopup() {
     endRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, loading]);
 
-  async function send() {
+  {/*async function send() {
     if (!input.trim() || loading) return;
 
     const userMsg = { role: "user" as const, text: input };
@@ -43,7 +43,39 @@ export default function ChatbotPopup() {
     } finally {
       setLoading(false);
     }
+  }*/}
+async function send() {
+  if (!input.trim() || loading) return;
+
+  const userMsg = { role: "user" as const, text: input };
+  setMessages((m) => [...m, userMsg]);
+  setInput("");
+  setLoading(true);
+
+  try {
+    const res = await fetch("http://127.0.0.1:8000/ask", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ question: userMsg.text }),
+    });
+
+    if (!res.ok) {
+      throw new Error(`HTTP error ${res.status}`);
+    }
+
+    const data = await res.json();
+
+    setMessages((m) => [...m, { role: "bot", text: data.answer }]);
+  } catch (err) {
+    console.error("Fetch error:", err);
+    setMessages((m) => [
+      ...m,
+      { role: "bot", text: "❌ Server error. Try again." },
+    ]);
+  } finally {
+    setLoading(false);
   }
+}
 
   return (
     <>
