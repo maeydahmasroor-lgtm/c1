@@ -1,0 +1,83 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Chatbot Backend API",
+    "version": "0.1.0"
+  },
+  "paths": {
+    "/chat": {
+      "post": {
+        "summary": "Send a chat message",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChatRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChatResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ChatRequest": {
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "session_id": {
+            "type": "string"
+          }
+        },
+        "required": ["message"]
+      },
+      "ChatResponse": {
+        "type": "object",
+        "properties": {
+          "response": {
+            "type": "string"
+          },
+          "sources": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Source"
+.            }
+          }
+        }
+      },
+      "Source": {
+        "type": "object",
+        "properties": {
+          "document_id": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string"
+          },
+          "score": {
+            "type": "number"
+          }
+        }
+      }
+    }
+  }
+}

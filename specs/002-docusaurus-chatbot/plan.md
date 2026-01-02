@@ -47,17 +47,11 @@ specs/002-docusaurus-chatbot/
 
 ### Source Code (repository root)
 ```text
-backend/
-├── .venv/
-├── src/
-│   ├── api/             # FastAPI endpoints (e.g., chat)
-│   ├── core/            # Core logic, config, and settings
-│   ├── models/          # Pydantic and SQLAlchemy models
-│   ├── services/        # Business logic (OpenAI, Qdrant integration)
-│   └── data/            # Data ingestion scripts
-└── tests/
-    ├── integration/
-    └── unit/
+book-rag/
+├── .venv/                 # Python virtual environment
+├── book.txt               # Your book/content to ingest
+├── ingest.py              # Script to ingest book into vector DB
+├── main.py                # FastAPI app (RAG chat endpoint)
 
 ai-robotics-mini-book/  # Existing Docusaurus project
 ├── src/
