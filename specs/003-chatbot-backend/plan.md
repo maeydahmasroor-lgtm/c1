@@ -56,13 +56,46 @@ chatbot-backend/
 │   ├── api/
 │   ├── core/
 │   ├── services/
-│   └── models/
+│   ├── models/
+│   ├── main.py
+│   ├── ingest.py
+│   └── schema.py
 └── tests/
     ├── integration/
     └── unit/
 ```
 
 **Structure Decision**: The project will follow the "Single project" structure, building upon the existing `chatbot-backend` directory. New source code will be organized within a `src` directory, and tests will be placed in a `tests` directory, as is common practice for Python applications.
+
+## Implementation Details
+
+### Qdrant Client Setup
+- Initialize the Qdrant client to connect to the vector database.
+- Configuration will be handled via environment variables.
+- Create a new collection if it doesn't exist, with the appropriate vector parameters (size, distance metric).
+
+### Ingestion Flow
+- `ingest.py` will be the main script for data ingestion.
+- It will read the source `book.txt` file.
+- The text will be split into chunks.
+- Embeddings will be generated for each chunk using the configured embedding model.
+- The chunks and their corresponding embeddings will be stored in the Qdrant collection.
+
+### Chat Flow with Token Management
+- The main chat logic will be in `src/services/chat_service.py`.
+- It will receive a user query.
+- It will generate an embedding for the query.
+- It will search Qdrant for similar vectors to retrieve relevant context.
+- It will construct a prompt for the LLM, including the user query and the retrieved context.
+- It will call the LLM to get a response.
+- Token management will be implemented to ensure the context window of the LLM is not exceeded. This includes truncating the context if necessary.
+
+### FastAPI App and Routes
+- `main.py` will contain the FastAPI application.
+- It will define the API routes (e.g., `/chat`).
+- The `/chat` route will handle POST requests with the user's message.
+- It will use the chat service to get a response and return it to the user.
+- API request and response models will be defined in `src/schema.py`.
 
 ## Complexity Tracking
 
